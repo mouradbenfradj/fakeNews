@@ -22,6 +22,8 @@ router.post(
 );
 
 router.post("/signin", controller.signin);
+
+router.get("/signin", controller.login);
 module.exports = router;
 
 //};

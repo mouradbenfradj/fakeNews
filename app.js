@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var favicon = require("serve-favicon");
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -11,10 +12,10 @@ const db = require("./models");
 const Role = db.role;
 
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users');
 
 var authRoutes = require('./routes/auth.routes');
-var usersRouter = require('./routes/user.routes');
+var userRouter = require('./routes/user.routes');
 var app = express();
 
 var corsOptions = {
@@ -37,6 +38,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(favicon(path.join(__dirname, "public", "ico", "favicon.ico")));
 app.use(express.static(path.join(__dirname, 'public')));
 
 db.mongoose
@@ -61,7 +63,8 @@ app.use(function(req, res, next) {
   next();
 });*/
 app.use('/api/auth/', authRoutes);
-app.use('/api/test/', usersRouter);
+app.use('/users', usersRouter);
+app.use('/api/test', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
