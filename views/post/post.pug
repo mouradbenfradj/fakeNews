@@ -1,0 +1,14 @@
+extends ../layout
+block append body
+    block content
+        h1.page-header Dashboard
+        h2.sub-header Add Post
+        .table-responsive
+            form(method='POST' action='/posts/post')
+                div.form-group
+                    label(for='news') news
+                    input.form-control(type='text' id='news' placeholder='news' name='news')
+                //div.form-group
+                    label(for='password') Password
+                    input.form-control(type='password' id='password' placeholder='password' name='password')
+                button.btn.btn-primary(type='submit') save

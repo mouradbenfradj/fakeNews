@@ -4,7 +4,8 @@ const Post = mongoose.model(
     'Post',
     new mongoose.Schema({
         news: String,
-        fake: String,
+        votes: [],
+        quality: Number,
         author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
     })
 );

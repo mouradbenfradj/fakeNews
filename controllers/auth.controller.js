@@ -6,11 +6,15 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.login = function(req, res) {
-    res.header(
-        "Access-Control-Allow-Headers",
-        "x-access-token, Origin, Content-Type, Accept"
-    );
-    res.render("layouts/signin");
+    res.render("auth/signin");
+};
+exports.logout = function (req, res) {
+    res.clearCookie('x-access-token');
+    /*
+    req.session.destroy(function (err) {
+        res.redirect('/');
+    });*/
+    res.redirect('/');
 };
 
 exports.signup = (req, res) => {
@@ -110,13 +114,18 @@ exports.signin = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
+            res.header(
+                "Access-Control-Allow-Headers",
+                "x-access-token, Origin, Content-Type, Accept"
+            );
+            let options = {
+                path:"/",
+                sameSite:true,
+                maxAge: 1000 * 60 * 60 * 24, // would expire after 24 hours
+                httpOnly: true, // The cookie only accessible by the web server
+            }
+            res.cookie('x-access-token',token, options)
 
-            res.status(200).redirect('/')/*send({
-                id: user._id,
-                username: user.username,
-                email: user.email,
-                roles: authorities,
-                accessToken: token
-            })*/;
+            res.redirect('/')
         });
 };

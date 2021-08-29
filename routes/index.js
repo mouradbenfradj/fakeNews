@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const {authJwt} = require("../middlewares");
+const controller = require("../controllers/index.controller");
 
 var values = ['mm'];
 
 /* GET home page. */
-router.get('/', [authJwt.verifyToken], function (req, res, next) {
-    res.render('index', {title: 'Express', values: values});
-});
+router.get('/',controller.index);
 
 router.get("/fluid", function(req, res) {
     res.render("layouts/fluid");

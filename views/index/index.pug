@@ -1,0 +1,38 @@
+extends ../layout
+block append body
+    block content
+        h1.page-header Dashboard
+            p
+                a(href="/posts/addPost") add new post
+        if (message)
+            div.alert.alert-info #{message}
+
+        h2.sub-header All News
+        .table-responsive
+            table.table.table-striped
+                thead
+                    tr
+                        th #
+                        th news
+                        th quality
+                        th vote
+                        //th Header
+                tbody
+                    each post in posts
+                        tr
+                            td= post._id
+                            td= post.news
+                            td= post.quality
+                            td
+                                if post.votes.length > 0
+                                    - if (post.votes.includes(userID))
+                                    #{post.votes.length} vote(s)
+                                else
+                                        a(href="/posts/fake/"+post._id)
+                                            button(type="button") fake
+                                        a(href="/posts/not_fake/"+post._id)
+                                            button(type="button") not fake
+                                        //td dolor
+                                        //td sit
+                    else
+                        tr There are no values

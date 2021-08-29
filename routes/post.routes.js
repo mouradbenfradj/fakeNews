@@ -4,7 +4,10 @@ const controller = require("../controllers/post.controller");
 var express = require('express');
 var router = express.Router();
 
-router.get('/posts/',controller.posts);
+router.get('/',controller.posts);
+router.get('/fake/:postId',[authJwt.verifyToken],controller.fake);
+router.get('/not_fake/:postId',[authJwt.verifyToken],controller.not_fake);
+router.get('/addPost',controller.addPost);
 
 router.post('/post',[authJwt.verifyToken],controller.post);
 module.exports = router;

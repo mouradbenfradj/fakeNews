@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require("serve-favicon");
+const session = require('express-session');
+
+var flash = require('connect-flash');
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -16,12 +19,18 @@ var usersRouter = require('./routes/users');
 
 var authRoutes = require('./routes/auth.routes');
 var userRouter = require('./routes/user.routes');
+var postRouter = require('./routes/post.routes');
 var app = express();
 
 var corsOptions = {
     origin: "http://localhost:3000"
 };
 
+app.use(session({
+    secret:'geeksforgeeks',
+    saveUninitialized: true,
+    resave: true
+}));
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -40,6 +49,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(favicon(path.join(__dirname, "public", "ico", "favicon.ico")));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 db.mongoose
     .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
@@ -64,6 +74,7 @@ app.use(function(req, res, next) {
 });*/
 app.use('/api/auth/', authRoutes);
 app.use('/users', usersRouter);
+app.use('/posts', postRouter);
 app.use('/api/test', userRouter);
 
 // catch 404 and forward to error handler
