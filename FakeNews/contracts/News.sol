@@ -18,32 +18,33 @@ contract News {
         uint quality;
     }
 
+    uint[] _vote;
 
     mapping(address => User) public users;
-    Poste[] public postes;
+    Poste[] postes;
 
 
-    function publishPoste(bytes32 __hash, string memory _post, string memory  _title) public {
-        uint[] storage _votes;
+    function publishPoste(bytes32 __hash, string memory _post, string memory _title) public {
+        uint[] storage _votes = _vote;
         uint _quality = users[msg.sender].reputation;
         postes.push(Poste({
-            _hash: __hash,
-            votes: _votes,
-            quality: _quality,
-            post: _post,
-            title: _title,
-            author: users[msg.sender]
-        }));
-        users[msg.sender].postes.push(postes.length-1);
+            _hash : __hash,
+            votes : _votes,
+            quality : _quality,
+            post : _post,
+            title : _title,
+            author : users[msg.sender]
+            }));
+        users[msg.sender].postes.push(postes.length - 1);
     }
 
 
     function votePoste(uint id, bool real) public {
         uint reps = 0;
-        if (real == true){
+        if (real == true) {
             reps = users[msg.sender].reputation;
-        }else{
-            reps = -users[msg.sender].reputation;
+        } else {
+            reps = - users[msg.sender].reputation;
         }
         postes[id].quality = postes[id].quality + reps;
         postes[id].votes.push(reps);
@@ -51,15 +52,14 @@ contract News {
     }
 
 
-	function getNumberPostes() public view returns(uint){
-		return postes.length;
-	}
-
+    function getNumberPostes() public view returns (uint){
+        return postes.length;
+    }
 
 
     function getAllPostes()
-        public
-        returns (string[] memory, string[] memory, uint[] memory , string[] memory, bytes32[] memory)
+    public
+    returns (string[] memory, string[] memory, uint[] memory, string[] memory, bytes32[] memory)
     {
         string[] memory titles = new string[](postes.length);
         string[] memory authors = new string[](postes.length);
@@ -75,7 +75,7 @@ contract News {
             hashes[i] = postes[i]._hash;
         }
 
-        return (titles,authors,quality,posts,hashes);
+        return (titles, authors, quality, posts, hashes);
     }
 
 
@@ -85,12 +85,12 @@ contract News {
     }
 
 
-	function getUserPostes(address addr) public view returns(uint[] memory){
-		return users[addr].postes;
-	}
+    function getUserPostes(address addr) public view returns (uint[] memory){
+        return users[addr].postes;
+    }
 
 
-	function getPoste(uint id) public view returns(string memory, string memory, uint, string memory, bytes32, uint[] memory) {
-		return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].post, postes[id]._hash, postes[id].votes);
-	}
+    function getPoste(uint id) public view returns (string memory, string memory, uint, string memory, bytes32, uint[] memory) {
+        return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].post, postes[id]._hash, postes[id].votes);
+    }
 }
