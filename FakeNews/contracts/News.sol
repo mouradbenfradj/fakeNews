@@ -1,4 +1,5 @@
 pragma solidity >=0.4.22 <0.7.0;
+pragma experimental ABIEncoderV2;
 
 contract News {
 
@@ -18,33 +19,32 @@ contract News {
         uint quality;
     }
 
-    uint[] _vote;
 
     mapping(address => User) public users;
-    Poste[] postes;
+    Poste[] public postes;
 
 
-    function publishPoste(bytes32 __hash, string memory _post, string memory _title) public {
-        uint[] storage _votes = _vote;
+    function publishPoste(bytes32 __hash ,string memory _post, string memory _title) public {
+        uint[] storage _votes;
         uint _quality = users[msg.sender].reputation;
         postes.push(Poste({
-            _hash : __hash,
-            votes : _votes,
-            quality : _quality,
-            post : _post,
-            title : _title,
-            author : users[msg.sender]
+            _hash: __hash,
+            votes: _votes,
+            quality: users[msg.sender].reputation,
+            post: _post,
+            title: _title,
+            author: users[msg.sender]
             }));
-        users[msg.sender].postes.push(postes.length - 1);
+        users[msg.sender].postes.push(postes.length-1);
     }
 
 
     function votePoste(uint id, bool real) public {
         uint reps = 0;
-        if (real == true) {
+        if (real == true){
             reps = users[msg.sender].reputation;
-        } else {
-            reps = - users[msg.sender].reputation;
+        }else{
+            reps = -users[msg.sender].reputation;
         }
         postes[id].quality = postes[id].quality + reps;
         postes[id].votes.push(reps);
@@ -52,9 +52,10 @@ contract News {
     }
 
 
-    function getNumberPostes() public view returns (uint){
+    function getNumberPostes() public view returns(uint){
         return postes.length;
     }
+
 
 
     function getAllPostes()
@@ -75,7 +76,7 @@ contract News {
             hashes[i] = postes[i]._hash;
         }
 
-        return (titles, authors, quality, posts, hashes);
+        return (titles,authors,quality,posts,hashes);
     }
 
 
@@ -85,12 +86,12 @@ contract News {
     }
 
 
-    function getUserPostes(address addr) public view returns (uint[] memory){
+    function getUserPostes(address addr) public view returns(uint[] memory){
         return users[addr].postes;
     }
 
 
-    function getPoste(uint id) public view returns (string memory, string memory, uint, string memory, bytes32, uint[] memory) {
+    function getPoste(uint id) public view returns(string memory, string memory, uint, string memory, bytes32, uint[] memory) {
         return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].post, postes[id]._hash, postes[id].votes);
     }
 }

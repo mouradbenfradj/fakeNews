@@ -18,7 +18,7 @@ block date
                     th news
                     th quality
                     th vote
-                    //th Header
+                    th modifier
             tbody
                 each post in posts
                     tr
@@ -34,7 +34,11 @@ block date
                                     button(type="button") fake
                                 a(href="/posts/not_fake/" + post._id)
                                     button(type="button") not fake
-                                //td dolor
+                        td
+                            if post.votes.length > 0 && user
+                                - if (post.votes.includes(userID)+1)
+                                    a(href="/posts/modifier_vote/" + post._id)
+                                        button(type="button") modifierVote
                                 //td sit
                 else
                     tr There are no values

@@ -40,6 +40,17 @@ exports.not_fake = async (req, res) => {
     await Post.findByIdAndUpdate({_id: req.params.postId}, post);
     res.redirect('/');
 };
+exports.modifierVote = async (req, res) => {
+    //var author = req.params.id
+    var post = await Post.findOne({_id: req.params.postId});
+    var index = post.votes.indexOf(req.userId);
+    if (index > -1) {
+        post.votes.splice(index, 1);
+        await Post.findByIdAndUpdate({_id: req.params.postId}, post);
+    }
+
+    res.redirect('/');
+};
 
 exports.post = (req, res) => {
     console.log(req.body.news);

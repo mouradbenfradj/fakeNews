@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+
+    h1.page-header Log In
+    form(method='POST' action='/api/auth/signin')
+        div.form-group
+            label(for='username') News
+            input.form-control(type='text' id='username' placeholder='username' name='username' value="#{post.news}")
+        div.form-group
+            label(for='password') Password
+            input.form-control(type='password' id='password' placeholder='password' name='password')
+        button.btn.btn-primary(type='submit') Log in
