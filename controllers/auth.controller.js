@@ -16,7 +16,6 @@ exports.logout = function (req, res) {
     });*/
     res.redirect('/');
 };
-
 exports.signup = (req, res) => {
     res.header(
         "Access-Control-Allow-Headers",
@@ -53,7 +52,7 @@ exports.signup = (req, res) => {
                             return;
                         }
 
-                        res.send({message: "User was registered successfully!"});
+                        res.send(res);
                     });
                 }
             );
@@ -71,7 +70,7 @@ exports.signup = (req, res) => {
                         return;
                     }
 
-                    res.send({message: "User was registered successfully!"});
+                    res.send("saved");
                 });
             });
         }

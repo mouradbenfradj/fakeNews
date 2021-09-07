@@ -1,5 +1,6 @@
 const db = require("../models");
 const Post = db.post;
+const Vote = db.vote;
 
 exports.addPost = async (req, res) => {
     res.render("post/post");
@@ -22,6 +23,13 @@ exports.fake = async (req, res) => {
     else
         post.quality = -1;
 
+    var vote = new Vote({vote: -1, user: req.userId, post: req.params.postId});
+    vote.save((err, result) => {
+        if (err) {
+            console.error('saving vote error')
+            return res.status(500).send({message: 'saving vote error'})
+        }
+    });
     await Post.findByIdAndUpdate({_id: req.params.postId}, post);
     res.redirect('/');
 };
@@ -37,16 +45,26 @@ exports.not_fake = async (req, res) => {
         post.quality += 1;
     else
         post.quality = 1;
+    var vote = new Vote({vote: 1, user: req.userId, post: req.params.postId});
+    vote.save((err, result) => {
+        if (err) {
+            console.error('saving vote error')
+            return res.status(500).send({message: 'saving vote error'})
+        }
+    });
     await Post.findByIdAndUpdate({_id: req.params.postId}, post);
     res.redirect('/');
 };
 exports.modifierVote = async (req, res) => {
     //var author = req.params.id
     var post = await Post.findOne({_id: req.params.postId});
+    var vote = await Vote.findOne({post: req.params.postId, user: req.userId});
     var index = post.votes.indexOf(req.userId);
     if (index > -1) {
         post.votes.splice(index, 1);
+        post.quality -= vote.vote;
         await Post.findByIdAndUpdate({_id: req.params.postId}, post);
+        await vote.remove();
     }
 
     res.redirect('/');

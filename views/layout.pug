@@ -18,7 +18,8 @@ block body
                         li
                             a(href='/') Dashboard
                         li
-                            a(href='#') Settings
+                            if(!user)
+                                a(href='/users/register') Register
                         li
                             a(href='#') Profile
                         li

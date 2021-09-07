@@ -75,7 +75,7 @@ app.use(function(req, res, next) {
 app.use('/api/auth/', authRoutes);
 app.use('/users', usersRouter);
 app.use('/posts', postRouter);
-app.use('/api/test', userRouter);
+app.use('/api/users', userRouter);
 
 
 app.use('/truffle', express.static('public_static'));
