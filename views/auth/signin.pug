@@ -3,7 +3,7 @@ extends ../layout
 block content
 
     h1.page-header Log In
-    form(method='POST' action='/api/auth/signin')
+    form(method='POST' action='/users/login')
         div.form-group
             label(for='username') Email
             input.form-control(type='text' id='username' placeholder='username' name='username')

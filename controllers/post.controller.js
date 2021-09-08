@@ -3,6 +3,7 @@ const Post = db.post;
 const Vote = db.vote;
 
 exports.addPost = async (req, res) => {
+    req.session.returnTo = req.originalUrl;
     res.render("post/post");
 };
 exports.posts = async (req, res) => {
@@ -15,15 +16,15 @@ exports.fake = async (req, res) => {
     var post = await Post.findOne({_id: req.params.postId});
     var arr = post.votes;
     if (arr)
-        post.votes.push(req.userId);
+        post.votes.push(req.session.userID);
     else
-        post.votes = [req.userId];
+        post.votes = [req.session.userID];
     if (post.quality)
         post.quality -= 1;
     else
         post.quality = -1;
 
-    var vote = new Vote({vote: -1, user: req.userId, post: req.params.postId});
+    var vote = new Vote({vote: -1, user: req.session.userID, post: req.params.postId});
     vote.save((err, result) => {
         if (err) {
             console.error('saving vote error')
@@ -38,14 +39,14 @@ exports.not_fake = async (req, res) => {
     var post = await Post.findOne({_id: req.params.postId});
     var arr = post.votes;
     if (arr)
-        post.votes.push(req.userId);
+        post.votes.push(req.session.userID);
     else
-        post.votes = [req.userId];
+        post.votes = [req.session.userID];
     if (post.quality)
         post.quality += 1;
     else
         post.quality = 1;
-    var vote = new Vote({vote: 1, user: req.userId, post: req.params.postId});
+    var vote = new Vote({vote: 1, user: req.session.userID, post: req.params.postId});
     vote.save((err, result) => {
         if (err) {
             console.error('saving vote error')
@@ -58,8 +59,8 @@ exports.not_fake = async (req, res) => {
 exports.modifierVote = async (req, res) => {
     //var author = req.params.id
     var post = await Post.findOne({_id: req.params.postId});
-    var vote = await Vote.findOne({post: req.params.postId, user: req.userId});
-    var index = post.votes.indexOf(req.userId);
+    var vote = await Vote.findOne({post: req.params.postId, user: req.session.userID});
+    var index = post.votes.indexOf(req.session.userID);
     if (index > -1) {
         post.votes.splice(index, 1);
         post.quality -= vote.vote;
@@ -73,7 +74,7 @@ exports.modifierVote = async (req, res) => {
 exports.post = (req, res) => {
     console.log(req.body.news);
     var postData = req.body;
-    postData.author = req.userId;
+    postData.author = req.session.userID;
 
     var post = new Post(postData);
     post.save((err, result) => {

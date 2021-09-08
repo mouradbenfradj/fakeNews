@@ -1,192 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53889092-5562-4536-8b9c-2642b25a77cf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/vote.model.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/auth/register.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/auth.controller.js" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/index.controller.js" afterPath="$PROJECT_DIR$/controllers/index.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/user.controller.js" afterPath="$PROJECT_DIR$/controllers/user.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/index.js" afterPath="$PROJECT_DIR$/models/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/post.routes.js" afterPath="$PROJECT_DIR$/routes/post.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.pug" afterPath="$PROJECT_DIR$/views/layout.pug" />
+    <list default="true" id="53889092-5562-4536-8b9c-2642b25a77cf" name="Default" comment="may think">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/post.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/post.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/authJwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/authJwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/post.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/post.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/post.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/post.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/signin.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/signin.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/post/post.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/post/post.pug" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="register.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/auth/register.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/index.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/auth.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="46" lean-forward="true" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index/index.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layout.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/user.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/auth.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/post/post.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/post.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vote.model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/vote.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -203,125 +43,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/views/auth/register.pug" />
-        <option value="$PROJECT_DIR$/routes/auth.routes.js" />
-        <option value="$PROJECT_DIR$/views/layout.pug" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/routes/users.js" />
-        <option value="$PROJECT_DIR$/controllers/index.controller.js" />
-        <option value="$PROJECT_DIR$/controllers/auth.controller.js" />
-        <option value="$PROJECT_DIR$/controllers/user.controller.js" />
-        <option value="$PROJECT_DIR$/routes/post.routes.js" />
-        <option value="$PROJECT_DIR$/models/vote.model.js" />
-        <option value="$PROJECT_DIR$/models/index.js" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="816" />
-    <option name="height" value="876" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="public_static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="public_static" type="462c0819:PsiDirectoryNode" />
-              <item name="javascript" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="public_static" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fakeNews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fakeNews" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-    </panes>
+  <component name="ProjectId" id="1xpnHoq3brAFStoUoy9VmWv8xkH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server.js" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -329,20 +63,8 @@
       <recent name="C:\mourad\fakeNews\views\auth" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Node.js.server">
-    <configuration name="server" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+    <configuration name="server" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
       <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
         <option name="envVars">
           <list />
@@ -364,20 +86,22 @@
           <list />
         </option>
       </EXTENSION>
+      <method v="2" />
     </configuration>
-    <configuration name="start server" type="js.build_tools.npm" factoryName="npm">
+    <configuration name="start server" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.server" />
-      <item index="1" class="java.lang.String" itemvalue="npm.start server" />
+    <list>
+      <item itemvalue="Node.js.server" />
+      <item itemvalue="npm.start server" />
     </list>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -387,11 +111,10 @@
       <option name="presentableId" value="Default" />
       <updated>1631003777253</updated>
       <workItem from="1631003779046" duration="12497000" />
+      <workItem from="1631060895646" duration="4475000" />
+      <workItem from="1631080836198" duration="3820000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12497000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -402,35 +125,96 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24651457" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32969153" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39973083" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="may think" />
+    <option name="LAST_COMMIT_MESSAGE" value="may think" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1631079897097">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1631079897097" />
+    <state x="336" y="0" key="CommitChangelistDialog2" timestamp="1631084561466">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="336" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1631084561466" />
+    <state width="636" height="466" key="DebuggerActiveHint" timestamp="1631061750700">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="636" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1631061750700" />
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.0.center" timestamp="1631084561803">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1631084561803" />
+    <state width="1323" height="269" key="GridCell.Tab.0.left" timestamp="1631084561803">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1631084561803" />
+    <state width="1323" height="269" key="GridCell.Tab.0.right" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.1.bottom" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.1.center" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.1.left" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.1.right" timestamp="1631084561804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1631084561804" />
+    <state width="1323" height="269" key="GridCell.Tab.2.bottom" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.2.center" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.2.left" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.2.right" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.3.bottom" timestamp="1631084561806">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1631084561806" />
+    <state width="1323" height="269" key="GridCell.Tab.3.center" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.3.left" timestamp="1631084561805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1631084561805" />
+    <state width="1323" height="269" key="GridCell.Tab.3.right" timestamp="1631084561806">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1631084561806" />
+    <state x="184" y="6" key="SettingsEditor" timestamp="1631080405893">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1631080405893" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -438,195 +222,19 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/auth.controller.js</url>
           <line>54</line>
-          <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
         <watch expression="req.body" language="JavaScript" />
+        <watch expression="posts[0].votes.includes(req.session.userID)" language="JavaScript" />
+        <watch expression="posts[0].votes.includes(session.userID)" language="JavaScript" />
+        <watch expression="req.headers" language="JavaScript" />
         <watch expression="res" language="JavaScript" />
+        <watch expression="req.session" language="JavaScript" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_static/stylesheets/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_static/javascript/accounts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middlewares/authJwt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="10" column="65" lean-forward="false" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/post.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index/index.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/bcryptjs/externs/minimal-env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/auth.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/auth/register.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/index.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/auth.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="46" lean-forward="true" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/post/post.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/post.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/vote.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

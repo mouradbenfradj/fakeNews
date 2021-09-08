@@ -64,14 +64,15 @@ db.mongoose
         console.error("Connection error", err);
         process.exit();
     });
-    app.use('/', indexRouter);/*
-app.use(function(req, res, next) {
-  res.header(
-      "Access-Control-Allow-Headers",
-      "x-access-token, Origin, Content-Type, Accept"
-  );
-  next();
-});*/
+
+app.use(function (req, res, next) {
+    res.header(
+        "Access-Control-Allow-Headers",
+        "x-access-token, Origin, Content-Type, Accept"
+    );
+    next();
+});
+app.use('/', indexRouter);
 app.use('/api/auth/', authRoutes);
 app.use('/users', usersRouter);
 app.use('/posts', postRouter);
@@ -81,10 +82,10 @@ app.use('/api/users', userRouter);
 app.use('/truffle', express.static('public_static'));
 
 app.get('/getAccounts', (req, res) => {
-  console.log("**** GET /getAccounts ****");
-  truffle_connect.start(function (answer) {
-    res.send(answer);
-  })
+    console.log("**** GET /getAccounts ****");
+    truffle_connect.start(function (answer) {
+        res.send(answer);
+    })
 });
 
 app.post('/getBalance', (req, res) => {

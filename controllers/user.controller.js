@@ -1,14 +1,14 @@
 const request = require('request');
+const jwt = require("jsonwebtoken");
+const config = require("../config/auth.config.js");
 
 exports.allAccess = (req, res) => {
-    res.header(
-        "Access-Control-Allow-Headers",
-        "x-access-token, Origin, Content-Type, Accept"
-    );
     res.status(200).send("Public Content.");
 };
 
 exports.getRegister = (req, res) => {
+    req.session.returnTo = req.originalUrl;
+
     res.render("auth/register");
 };
 
@@ -23,13 +23,30 @@ exports.postRegister = (req, res) => {
     res.redirect('/')
 
 };
+exports.getLogin = function (req, res) {
+    res.render("auth/signin");
+};
+exports.postLogin = (req, res) => {
+    console.log('postLogin')
 
+    request.post({
+        url: 'http://localhost:3000/api/auth/signin',
+        body: {username: req.body.username, password: req.body.password},
+        json: true
+    }, function (error, response, body) {
+        console.error('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log('body:', body); // Print the HTML for the Google homepage.
+        req.session.user = body;
+        req.session.accessToken = body.accessToken;
+        req.session.userID = body.id;
+        req.session.user = body;
+        req.session.token = body.accessToken;
+        res.redirect(req.session.returnTo)
+    });
+
+};
 exports.userBoard = (req, res) => {
-
-    res.header(
-        "Access-Control-Allow-Headers",
-        "x-access-token, Origin, Content-Type, Accept"
-    );
     res.status(200).send("User Content.");
 };
 

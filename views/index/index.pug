@@ -17,6 +17,7 @@ block date
                     th #
                     th news
                     th quality
+                    th truffleAccount
                     th vote
                     th modifier
             tbody
@@ -25,9 +26,10 @@ block date
                         td= post._id
                         td= post.news
                         td= post.quality
+                        td= post.truffleAccount
                         td
-                            if post.votes.length > 0 && user
-                                - if (post.votes.includes(userID))
+                            if post.votes.length > 0 && user && post.votes.includes(userID)
+                                - if (post.votes.includes(userID));
                                 #{post.votes.length} vote(s)
                             else
                                 a(href="/posts/fake/" + post._id)

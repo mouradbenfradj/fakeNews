@@ -12,7 +12,9 @@ block date
         form(method='POST' action='/posts/post')
             div.form-group
                 label(for='news') news
-                input.form-control(type='text' id='news' placeholder='news' name='news')
+                input.form-control(type='text' id='news' required='true' placeholder='news' name='news')
+                label(for='truffleAccount') truffleAccount
+                input.form-control(type='text' id='truffleAccount' required='true' placeholder='truffleAccount' name='truffleAccount')
             //div.form-group
                 label(for='password') Password
                 input.form-control(type='password' id='password' placeholder='password' name='password')
