@@ -2,115 +2,80 @@ pragma solidity >=0.4.25 <0.6.0;
 pragma experimental ABIEncoderV2;
 
 contract News {
-    struct Journalist {
-        string name;
+    struct User {
+        string username;
         string email;
-        uint256[] articles;
+        uint256[] postes;
         uint256[1000] votes;
         uint256 reputation;
     }
 
-    struct Article {
-        bytes32 _hash;
+    struct Post {
         uint256[] votes;
         string title;
-        Journalist author;
+        User author;
         uint256 quality;
     }
 
-    mapping(address => Journalist) public journalists;
-    Article[] public articles;
+    mapping(address => User) public users;
+    Post[] public postes;
 
-    function publishArticle(bytes32 __hash, string memory _title) public {
-        uint256[] storage _votes;
-        uint256 _quality = journalists[msg.sender].reputation;
-        articles.push(
-            Article({
-                _hash: __hash,
-                votes: _votes,
-                quality: _quality,
-                title: _title,
-                author: journalists[msg.sender]
+    function publishPost( string memory _title, uint256[] memory _votes) public {
+        uint256 _quality = users[msg.sender].reputation;
+        postes.push(
+            Post({
+            votes: _votes,
+            quality: _quality,
+            title: _title,
+            author: users[msg.sender]
             })
         );
-        journalists[msg.sender].articles.push(articles.length - 1);
+        users[msg.sender].postes.push(postes.length - 1);
     }
 
-    function voteArticle(uint256 id, bool real) public {
+    function votePost(uint256 id, bool real) public {
         uint256 reps = 0;
         if (real == true) {
-            reps = journalists[msg.sender].reputation;
+            reps = users[msg.sender].reputation;
         } else {
-            reps = -journalists[msg.sender].reputation;
+            reps = -users[msg.sender].reputation;
         }
-        articles[id].quality = articles[id].quality + reps;
-        articles[id].votes.push(reps);
-        journalists[msg.sender].votes[id] = reps;
+        postes[id].quality = postes[id].quality + reps;
+        postes[id].votes.push(reps);
+        users[msg.sender].votes[id] = reps;
     }
 
-    function getNumberArticles() public view returns (uint256) {
-        return articles.length;
+    function getNumberPosts() public view returns (uint256) {
+        return postes.length;
     }
 
-    function getAllArticles()
-        public
-        returns (
-            string[] memory,
-            string[] memory,
-            uint256[] memory,
-            bytes32[] memory
-        )
+    function getAllPosts() public view  returns (string[] memory, string[] memory, uint256[] memory)
     {
-        string[] memory titles = new string[](articles.length);
-        string[] memory authors = new string[](articles.length);
-        uint256[] memory quality = new uint256[](articles.length);
-        bytes32[] memory hashes = new bytes32[](articles.length);
+        string[] memory titles = new string[](postes.length);
+        string[] memory authors = new string[](postes.length);
+        uint256[] memory quality = new uint256[](postes.length);
 
-        for (uint256 i = 0; i < articles.length; i++) {
-            titles[i] = articles[i].title;
-            authors[i] = articles[i].author.name;
-            quality[i] = articles[i].quality;
-            hashes[i] = articles[i]._hash;
+        for (uint256 i = 0; i < postes.length; i++) {
+            titles[i] = postes[i].title;
+            authors[i] = postes[i].author.username;
+            quality[i] = postes[i].quality;
         }
 
-        return (titles, authors, quality, hashes);
+        return (titles, authors, quality);
     }
 
-    function setJournalistData(
-        address target,
-        uint256 _reputation,
-        string memory _name
-    ) public {
-        journalists[target].reputation = _reputation;
-        journalists[target].name = _name;
+    function setUserData(address target, uint256 _reputation, string memory _username) public {
+        users[target].reputation = _reputation;
+        users[target].username = _username;
     }
 
-    function getUserArticles(address addr)
-        public
-        view
-        returns (uint256[] memory)
+    function getUserPosts(address addr) public view returns (uint256[] memory)
     {
-        return journalists[addr].articles;
+        return users[addr].postes;
     }
 
-    function getArticle(uint256 id)
-        public
-        view
-        returns (
-            string memory,
-            string memory,
-            uint256,
-            string memory,
-            bytes32,
-            uint256[] memory
-        )
+    function getPost(uint256 id) public view returns ( string memory, string memory, uint256, uint256[] memory )
     {
-        return (
-            articles[id].title,
-            articles[id].author.name,
-            articles[id].quality,
-            articles[id]._hash,
-            articles[id].votes
-        );
+        return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].votes);
     }
 }

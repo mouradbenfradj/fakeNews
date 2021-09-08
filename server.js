@@ -12,7 +12,7 @@ const truffle_connect = require('./connection/app.js');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 const cors = require("cors");
 const dbConfig = require('./config/db.config');
 const db = require("./models");
@@ -26,13 +26,13 @@ var userRouter = require('./routes/user.routes');
 var postRouter = require('./routes/post.routes');
 
 var corsOptions = {
-  origin: "http://localhost:3000"
+    origin: "http://localhost:3000"
 };
 
 app.use(session({
-  secret:'geeksforgeeks',
-  saveUninitialized: true,
-  resave: true
+    secret: 'geeksforgeeks',
+    saveUninitialized: true,
+    resave: true
 }));
 
 app.use(cors(corsOptions));
@@ -87,93 +87,125 @@ app.get('/getAccounts', (req, res) => {
         res.send(answer);
     })
 });
-
+/*
 app.post('/getBalance', (req, res) => {
-  console.log("**** GET /getBalance ****");
-  console.log(req.body);
-  let currentAcount = req.body.account;
+    console.log("**** GET /getBalance ****");
+    console.log(req.body);
+    let currentAcount = req.body.account;
 
-  truffle_connect.refreshBalance(currentAcount, (answer) => {
-    let account_balance = answer;
-    truffle_connect.start(function(answer){
-      // get list of all accounts and send it along with the response
-      let all_accounts = answer;
-      response = [account_balance, all_accounts]
-      res.send(response);
+    truffle_connect.refreshBalance(currentAcount, (answer) => {
+        let account_balance = answer;
+        truffle_connect.start(function (answer) {
+            // get list of all accounts and send it along with the response
+            let all_accounts = answer;
+            response = [account_balance, all_accounts]
+            res.send(response);
+        });
     });
-  });
+});*/
+
+app.get('/getNumberPosts', (req, res) => {
+    //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    truffle_connect.getPost((answer) => {
+        let account_balance = answer;
+        res.send(answer);
+
+    });
+});
+app.get('/getPost/:id', (req, res) => {
+    //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    truffle_connect.getPost(req.params.id, (answer) => {
+        let account_balance = answer;
+        res.send(answer);
+
+    });
 });
 
+app.post('/votePost/:idpost', (req, res) => {
+    console.log("**** GET /sendCoin ****");
+    console.log(req.body);
+
+    let id = req.body.id;
+    let real = req.body.real;
+    truffle_connect.start(function (answer) {
+        console.console.log(answer[req.params.idpost]);
+        truffle_connect.votePost(answer, id, real, (answer) => {
+            res.send(answer);
+        });
+    })
+});
+/*
 app.post('/sendCoin', (req, res) => {
-  console.log("**** GET /sendCoin ****");
-  console.log(req.body);
+    console.log("**** GET /sendCoin ****");
+    console.log(req.body);
 
-  let amount = req.body.amount;
-  let sender = req.body.sender;
-  let receiver = req.body.receiver;
+    let amount = req.body.amount;
+    let sender = req.body.sender;
+    let receiver = req.body.receiver;
 
-  truffle_connect.sendCoin(amount, sender, receiver, (balance) => {
-    res.send(balance);
-  });
-});
+    truffle_connect.sendCoin(amount, sender, receiver, (balance) => {
+        res.send(balance);
+    });
+});*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 function initial() {
-  Role.estimatedDocumentCount((err, count) => {
-      if (!err && count === 0) {
-          new Role({
-              name: "user"
-          }).save(err => {
-              if (err) {
-                  console.log("error", err);
-              }
+    Role.estimatedDocumentCount((err, count) => {
+        if (!err && count === 0) {
+            new Role({
+                name: "user"
+            }).save(err => {
+                if (err) {
+                    console.log("error", err);
+                }
 
-              console.log("added 'user' to roles collection");
-          });
+                console.log("added 'user' to roles collection");
+            });
 
-          new Role({
-              name: "moderator"
-          }).save(err => {
-              if (err) {
-                  console.log("error", err);
-              }
+            new Role({
+                name: "moderator"
+            }).save(err => {
+                if (err) {
+                    console.log("error", err);
+                }
 
-              console.log("added 'moderator' to roles collection");
-          });
+                console.log("added 'moderator' to roles collection");
+            });
 
-          new Role({
-              name: "admin"
-          }).save(err => {
-              if (err) {
-                  console.log("error", err);
-              }
+            new Role({
+                name: "admin"
+            }).save(err => {
+                if (err) {
+                    console.log("error", err);
+                }
 
-              console.log("added 'admin' to roles collection");
-          });
-      }
-  });
+                console.log("added 'admin' to roles collection");
+            });
+        }
+    });
 }
+
 app.listen(port, () => {
 
-  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-  truffle_connect.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+    truffle_connect.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
 
-  console.log("Express Listening at http://localhost:" + port);
+    console.log("Express Listening at http://localhost:" + port);
 
 });

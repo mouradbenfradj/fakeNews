@@ -9,7 +9,8 @@ const User = mongoose.model(
         postes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}],
         votes:[],
         reputation: [Number],
-        roles: [{type: mongoose.Schema.Types.ObjectId, ref: "Role"}]
+        roles: [{type: mongoose.Schema.Types.ObjectId, ref: "Role"}],
+        truffleAccount: String,
     })
 );
 
