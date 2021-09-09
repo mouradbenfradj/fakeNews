@@ -16,7 +16,8 @@ block date
                 tr
                     th #
                     th news
-                    th quality
+                    if user
+                        th quality
                     th vote
                     th modifier
             tbody
@@ -24,7 +25,8 @@ block date
                     tr
                         td= post._id
                         td= post.news
-                        td= user.reputation
+                        if user
+                            td= user.reputation
                         td
                             - var pid = JSON.stringify(post.quality)
                             if user
