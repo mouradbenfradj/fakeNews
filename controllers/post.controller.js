@@ -31,6 +31,7 @@ exports.fake = async (req, res) => {
             console.error('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', body); // Print the HTML for the Google homepage.
+            req.session.user.votes.push(req.params.postId);
             vote.save(async (err, result) => {
                 if (err) {
                     console.error('saving vote error')
@@ -62,6 +63,7 @@ exports.not_fake = async (req, res) => {
             console.error('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', body); // Print the HTML for the Google homepage.
+            req.session.user.votes.push(req.params.postId);
             vote.save(async (err, result) => {
                 if (err) {
                     console.error('saving vote error')

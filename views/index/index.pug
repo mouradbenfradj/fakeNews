@@ -17,7 +17,6 @@ block date
                     th #
                     th news
                     th quality
-                    th truffleAccount
                     th vote
                     th modifier
             tbody
@@ -25,22 +24,23 @@ block date
                     tr
                         td= post._id
                         td= post.news
-                        td= post.quality
-                        td= post.truffleAccount
+                        td= user.reputation
                         td
-                            if post.votes.indexOf(userID) >= 0 && user
-                                - if (post.votes.indexOf(userID));
-                                #{post.votes.length} vote(s)
+                            - var pid = JSON.stringify(post.quality)
+                            if user
+                                if user.votes.indexOf(  {pid}) >= 0 && user
+                                    #{post.votes} vote(s)
                             else
                                 a(href="/posts/fake/" + post._id)
                                     button(type="button") fake
                                 a(href="/posts/not_fake/" + post._id)
                                     button(type="button") not fake
                         td
-                            if post.votes.length > 0 && user
-                                - if (post.votes.indexOf(userID)+1)
+                            - var pid = JSON.stringify(post._id)
+                            if user
+                                if user.votes.indexOf({pid}) < 0 && user
                                     a(href="/posts/modifier_vote/" + post._id)
-                                        button(type="button") modifierVote
+                                    button(type="button") modifierVote
                                 //td sit
                 else
                     tr There are no values
