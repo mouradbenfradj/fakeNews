@@ -16,10 +16,7 @@ block date
                 tr
                     th #
                     th news
-                    - var pid = JSON.stringify(post.quality)
-                    if user
-                        if user.votes.indexOf({pid}) >= 0 && user
-                            th quality
+                    th quality
                     th vote
                     th modifier
             tbody
@@ -27,7 +24,7 @@ block date
                     tr
                         td= post._id
                         td= post.news
-                        - var pid = JSON.stringify(post.quality)
+                        - var pid = JSON.stringify(post._id)
                         if user
                             if user.votes.indexOf({pid}) >= 0 && user
                                 td= user.reputation
