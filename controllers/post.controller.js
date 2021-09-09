@@ -81,12 +81,15 @@ exports.not_fake = async (req, res) => {
 exports.modifierVote = async (req, res) => {
     //var author = req.params.id
     var post = await Post.findOne({_id: req.params.postId});
+    var user = await User.findOne({_id: req.session.userID});
     var vote = await Vote.findOne({post: req.params.postId, user: req.session.userID});
-    var index = post.votes.indexOf(req.session.userID);
+    //var index = post.votes.indexOf(req.session.userID);
+    var index = User.votes.indexOf(req.params.postId);
     if (index > -1) {
-        post.votes.splice(index, 1);
+        user.votes.splice(index, 1);
         post.quality -= vote.vote;
         await Post.findByIdAndUpdate({_id: req.params.postId}, post);
+        await User.findByIdAndUpdate({_id: req.session.userID}, post);
         await vote.remove();
     }
 
