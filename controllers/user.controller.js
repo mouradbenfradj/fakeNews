@@ -27,7 +27,7 @@ exports.postRegister = (req, res) => {
         console.log('body:', body); // Print the HTML for the Google homepage.
         request.post({
             url: 'http://localhost:3000/setUserData/'+req.body.truffleAccount,
-            body: {username: req.body.username, reputation: 1},
+            body: {username: req.body.username, reputation: 20},
             json: true
         }, function (error, response, body) {
             console.error('error:', error); // Print the error if one occurred

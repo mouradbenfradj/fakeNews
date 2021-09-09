@@ -2,6 +2,7 @@ const request = require('request');
 const db = require("../models");
 const Post = db.post;
 const Vote = db.vote;
+const User = db.user;
 
 exports.addPost = async (req, res) => {
     req.session.returnTo = req.originalUrl;
@@ -21,52 +22,59 @@ exports.fake = async (req, res) => {
     post.votes = reps;
     req.session.user.votes[post._id] = reps;
     var vote = new Vote({vote: reps, user: req.session.userID, post: req.params.postId});
-    request.post({
-        url: 'http://localhost:3000/votePost/' + req.session.user.votes.indexOf(req.params.postId),
-        body: {id: req.session.user.votes.indexOf(req.params.postId), real: false},
-        json: true
-    }, function (error, response, body) {
-        console.error('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
-        vote.save((err, result) => {
-            if (err) {
-                console.error('saving vote error')
-                return res.status(500).send({message: 'saving vote error'})
-            }
+    request.get('http://localhost:3000/getAllPosts', function (error, response, body) {
+        request.post({
+            url: 'http://localhost:3000/votePost/' + req.session.user.truffleAccount,
+            body: {id: JSON.parse(body)[0].indexOf(post.news), real: false},
+            json: true
+        }, function (error, response, body) {
+            console.error('error:', error); // Print the error if one occurred
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            console.log('body:', body); // Print the HTML for the Google homepage.
+            vote.save(async (err, result) => {
+                if (err) {
+                    console.error('saving vote error')
+                    return res.status(500).send({message: 'saving vote error'})
+                }
+
+                delete req.session.user.roles;
+                await User.findByIdAndUpdate({_id: req.session.userID}, req.session.user);
+                await Post.findByIdAndUpdate({_id: req.params.postId}, post);
+                res.redirect('/');
+            });
         });
     });
-    await User.findByIdAndUpdate({_id: req.session.userID}, req.session.user);
-    await Post.findByIdAndUpdate({_id: req.params.postId}, post);
-    res.redirect('/');
 };
 exports.not_fake = async (req, res) => {
     //var author = req.params.id
     var post = await Post.findOne({_id: req.params.postId});
     var reps = 0;
-    reps = app.session.user.reputation;
+    reps = req.session.user.reputation;
     post.quality += reps;
     post.votes = reps;
-    app.session.user.votes[post._id] = reps;
     var vote = new Vote({vote: reps, user: req.session.userID, post: req.params.postId});
-    request.post({
-        url: 'http://localhost:3000/votePost/' + app.session.user.votes.votes.indexOf(userID),
-        body: {id: app.session.user.votes.votes.indexOf(userID), real: true},
-        json: truegetAllPosts
-    }, function (error, response, body) {
-        console.error('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
-        vote.save((err, result) => {
-            if (err) {
-                console.error('saving vote error')
-                return res.status(500).send({message: 'saving vote error'})
-            }
+    request.get('http://localhost:3000/getAllPosts', function (error, response, body) {
+        request.post({
+            url: 'http://localhost:3000/votePost/' + req.session.user.truffleAccount,
+            body: {id: JSON.parse(body)[0].indexOf(post.news), real: true},
+            json: true
+        }, function (error, response, body) {
+            console.error('error:', error); // Print the error if one occurred
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            console.log('body:', body); // Print the HTML for the Google homepage.
+            vote.save(async (err, result) => {
+                if (err) {
+                    console.error('saving vote error')
+                    return res.status(500).send({message: 'saving vote error'})
+                }
+
+                delete req.session.user.roles;
+                await User.findByIdAndUpdate({_id: req.session.userID}, req.session.user);
+                await Post.findByIdAndUpdate({_id: req.params.postId}, post);
+                res.redirect('/');
+            });
         });
     });
-    await User.findByIdAndUpdate({_id: req.params.userID}, app.session.user);
-    await Post.findByIdAndUpdate({_id: req.params.postId}, post);
-    res.redirect('/');
 };
 exports.modifierVote = async (req, res) => {
     //var author = req.params.id
