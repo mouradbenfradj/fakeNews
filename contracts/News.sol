@@ -11,7 +11,7 @@ contract News {
     }
 
     struct Post {
-        bytes32 _hash;
+        string hash;
         uint256[] votes;
         string title;
         User author;
@@ -22,12 +22,12 @@ contract News {
     Post[] public postes;
     uint256[] __votes;
 
-    function publishPost(bytes32 __hash,string memory _title) public {
+    function publishPost(string memory _hash,string memory _title) public {
         uint256[] storage _votes = __votes;
         uint256 _quality = users[msg.sender].reputation;
         postes.push(
             Post({
-            _hash: __hash,
+            hash: _hash,
             votes: _votes,
             quality: _quality,
             title: _title,
@@ -53,21 +53,21 @@ contract News {
         return postes.length;
     }
 
-    function getAllPosts() public view  returns (string[] memory, string[] memory, uint256[] memory, bytes32[] memory)
+    function getAllPosts() public view  returns (string[] memory, string[] memory, uint256[] memory, string[] memory)
     {
         string[] memory titles = new string[](postes.length);
         string[] memory authors = new string[](postes.length);
         uint256[] memory quality = new uint256[](postes.length);
-        bytes32[] memory hashes = new bytes32[](postes.length);
+        string[] memory hashes = new string[](postes.length);
 
         for (uint256 i = 0; i < postes.length; i++) {
             titles[i] = postes[i].title;
             authors[i] = postes[i].author.username;
             quality[i] = postes[i].quality;
-            hashes[i] = postes[i]._hash;
+            hashes[i] = postes[i].hash;
         }
 
-        return (titles, authors, quality,hashes);
+        return (titles, authors, quality, hashes);
     }
 
     function setUserData(address target, uint256 _reputation, string memory _username) public {
@@ -80,8 +80,8 @@ contract News {
         return users[addr].postes;
     }
 
-    function getPost(uint256 id) public view returns ( string memory, string memory, uint256, uint256[] memory,bytes32 )
+    function getPost(uint256 id) public view returns ( string memory, string memory, uint256, uint256[] memory,string memory )
     {
-        return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].votes, postes[id]._hash);
+        return (postes[id].title, postes[id].author.username, postes[id].quality, postes[id].votes, postes[id].hash);
     }
 }

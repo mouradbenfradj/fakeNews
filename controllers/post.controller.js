@@ -2,7 +2,6 @@ const request = require('request');
 const db = require("../models");
 const Post = db.post;
 const Vote = db.vote;
-const User = db.user;
 
 exports.addPost = async (req, res) => {
     req.session.returnTo = req.originalUrl;
@@ -19,11 +18,11 @@ exports.fake = async (req, res) => {
     var reps = 0;
     reps = req.session.user.reputation;
     post.quality -= reps;
-    post.votes=reps;
+    post.votes = reps;
     req.session.user.votes[post._id] = reps;
     var vote = new Vote({vote: reps, user: req.session.userID, post: req.params.postId});
     request.post({
-        url: 'http://localhost:3000/votePost/'+req.session.user.votes.indexOf(req.params.postId),
+        url: 'http://localhost:3000/votePost/' + req.session.user.votes.indexOf(req.params.postId),
         body: {id: req.session.user.votes.indexOf(req.params.postId), real: false},
         json: true
     }, function (error, response, body) {
@@ -47,11 +46,11 @@ exports.not_fake = async (req, res) => {
     var reps = 0;
     reps = app.session.user.reputation;
     post.quality += reps;
-    post.votes=reps;
+    post.votes = reps;
     app.session.user.votes[post._id] = reps;
     var vote = new Vote({vote: reps, user: req.session.userID, post: req.params.postId});
     request.post({
-        url: 'http://localhost:3000/votePost/'+app.session.user.votes.votes.indexOf(userID),
+        url: 'http://localhost:3000/votePost/' + app.session.user.votes.votes.indexOf(userID),
         body: {id: app.session.user.votes.votes.indexOf(userID), real: true},
         json: truegetAllPosts
     }, function (error, response, body) {
@@ -91,8 +90,8 @@ exports.post = (req, res) => {
 
     var post = new Post(postData);
     request.post({
-        url: 'http://localhost:3000/publishPost/'+user.truffleAccount,
-        body: {username: req.body.username, reputation: 0},
+        url: 'http://localhost:3000/publishPost/' + req.session.user.truffleAccount,
+        body: {title: postData.news, hash: postData.author},
         json: true
     }, function (error, response, body) {
         console.error('error:', error); // Print the error if one occurred
@@ -103,9 +102,9 @@ exports.post = (req, res) => {
                 console.error('saving post error')
                 return res.status(500).send({message: 'saving post error'})
             }
-    
-            res.status(200).redirect('/');
         })
+        res.status(200).redirect('/');
+
     });
 
 

@@ -110,10 +110,9 @@ app.post('/publishPost/:id', (req, res) => {
     //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
     truffle_connect.start(function (answer) {
         console.log(answer[req.params.id]);
-        truffle_connect.publishPost(answer[req.params.id],
-            hash, title, (answer) => {
-                res.send(answer);
-            });
+        truffle_connect.publishPost(answer[req.params.id], hash, title, (answer) => {
+            res.send(answer);
+        });
     });
 });
 
@@ -159,7 +158,7 @@ app.post('/setUserData/:id', (req, res) => {
 
 app.post('/getUserPosts/:id', (req, res) => {
     console.log("**** GET /getUserPosts ****");
-     truffle_connect.start(function (answer) {
+    truffle_connect.start(function (answer) {
         console.log(answer[req.params.id]);
         truffle_connect.getUserPosts(answer[req.params.id], (answer) => {
             res.send(answer);

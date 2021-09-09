@@ -34,7 +34,7 @@ module.exports = {
         });
     },
 
-    publishPost: function (sender,hash, title, callback) {
+    publishPost: function (sender, hash, title, callback) {
         var self = this;
 
         News.setProvider(self.web3.currentProvider);
@@ -70,7 +70,7 @@ module.exports = {
             callback("ERROR 404");
         });
     },
-    
+
     getNumberPosts: function (callback) {
         var self = this;
 
@@ -116,7 +116,7 @@ module.exports = {
             meta = instance;
             return meta.setUserData(target, reputation, username, {from: target});
         }).then(function () {
-            self.getUserPosts(target,function (answer) {
+            self.getUserPosts(target, function (answer) {
                 callback(answer);
             });
         }).catch(function (e) {
