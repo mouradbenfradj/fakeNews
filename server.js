@@ -104,14 +104,69 @@ app.post('/getBalance', (req, res) => {
     });
 });*/
 
+app.post('/publishPost/:id', (req, res) => {
+    let hash = req.body.hash;
+    let title = req.body.title;
+    //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    truffle_connect.start(function (answer) {
+        console.log(answer[req.params.id]);
+        truffle_connect.publishPost(answer[req.params.id],
+            hash, title, (answer) => {
+                res.send(answer);
+            });
+    });
+});
+
+app.post('/votePost/:idpost', (req, res) => {
+    console.log("**** GET /votePost ****");
+    let id = req.body.id;
+    let real = req.body.real;
+    truffle_connect.start(function (answer) {
+        console.log(answer[req.params.idpost]);
+        truffle_connect.votePost(answer[req.params.idpost], id, real, (answer) => {
+            res.send(answer);
+        });
+    })
+});
 app.get('/getNumberPosts', (req, res) => {
     //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-    truffle_connect.getPost((answer) => {
-        let account_balance = answer;
+    truffle_connect.getNumberPosts((answer) => {
         res.send(answer);
 
     });
 });
+
+app.get('/getAllPosts', (req, res) => {
+    //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    truffle_connect.getAllPosts((answer) => {
+        res.send(answer);
+    });
+});
+
+
+app.post('/setUserData/:id', (req, res) => {
+    console.log("**** GET /setUserData ****");
+    let reputation = req.body.reputation;
+    let username = req.body.username;
+    truffle_connect.start(function (answer) {
+        console.log(answer[req.params.id]);
+        truffle_connect.setUserData(answer[req.params.id], reputation, username, (answer) => {
+            res.send(answer);
+        });
+    })
+});
+
+
+app.post('/getUserPosts/:id', (req, res) => {
+    console.log("**** GET /getUserPosts ****");
+     truffle_connect.start(function (answer) {
+        console.log(answer[req.params.id]);
+        truffle_connect.getUserPosts(answer[req.params.id], (answer) => {
+            res.send(answer);
+        });
+    })
+});
+
 app.get('/getPost/:id', (req, res) => {
     //var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
     truffle_connect.getPost(req.params.id, (answer) => {
@@ -121,19 +176,6 @@ app.get('/getPost/:id', (req, res) => {
     });
 });
 
-app.post('/votePost/:idpost', (req, res) => {
-    console.log("**** GET /sendCoin ****");
-    console.log(req.body);
-
-    let id = req.body.id;
-    let real = req.body.real;
-    truffle_connect.start(function (answer) {
-        console.console.log(answer[req.params.idpost]);
-        truffle_connect.votePost(answer, id, real, (answer) => {
-            res.send(answer);
-        });
-    })
-});
 /*
 app.post('/sendCoin', (req, res) => {
     console.log("**** GET /sendCoin ****");

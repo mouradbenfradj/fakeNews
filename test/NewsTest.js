@@ -10,7 +10,7 @@ contract('News', function (accounts) {
         return News.deployed().then(function name(instance) {
             return instance.getNumberPosts()
         }).then(function (params) {
-            assert.equal(params[0], undefined, "nombre postes")
+            assert.equal(params, 0, "nombre postes")
         })
     })
 })

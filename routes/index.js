@@ -7,7 +7,7 @@ var values = ['mm'];
 
 /* GET home page. */
 router.get('/',controller.index);
-
+/* 
 router.get("/fluid", function(req, res) {
     res.render("layouts/fluid");
 });
@@ -32,5 +32,5 @@ router.get("/starter", function(req, res) {
 router.get("/sticky", function(req, res) {
     res.render("layouts/sticky-footer");
 });
-
+ */
 module.exports = router;

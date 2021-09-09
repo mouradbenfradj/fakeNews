@@ -28,8 +28,8 @@ block date
                         td= post.quality
                         td= post.truffleAccount
                         td
-                            if post.votes.length > 0 && user && post.votes.includes(userID)
-                                - if (post.votes.includes(userID));
+                            if post.votes.indexOf(userID) >= 0 && user
+                                - if (post.votes.indexOf(userID));
                                 #{post.votes.length} vote(s)
                             else
                                 a(href="/posts/fake/" + post._id)
@@ -38,7 +38,7 @@ block date
                                     button(type="button") not fake
                         td
                             if post.votes.length > 0 && user
-                                - if (post.votes.includes(userID)+1)
+                                - if (post.votes.indexOf(userID)+1)
                                     a(href="/posts/modifier_vote/" + post._id)
                                         button(type="button") modifierVote
                                 //td sit

@@ -8,17 +8,20 @@ var bcrypt = require("bcryptjs");
 
 exports.logout = function (req, res) {
     res.clearCookie('x-access-token');
-    /*
+
     req.session.destroy(function (err) {
         res.redirect('/');
-    });*/
+    });
     res.redirect('/');
 };
 exports.signup = (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
+        reputation: 1,
+        truffleAccount: req.body.truffleAccount,
         password: bcrypt.hashSync(req.body.password, 8)
+        
     });
 
     user.save((err, user) => {
@@ -44,8 +47,8 @@ exports.signup = (req, res) => {
                             res.status(500).send({message: err});
                             return;
                         }
+                        res.send(JSON.stringify(user));
 
-                        res.send(res);
                     });
                 }
             );
@@ -62,8 +65,8 @@ exports.signup = (req, res) => {
                         res.status(500).send({message: err});
                         return;
                     }
+                    res.send(JSON.stringify(user));
 
-                    res.send("saved");
                 });
             });
         }
@@ -113,7 +116,10 @@ exports.signin = (req, res) => {
                 username: user.username,
                 email: user.email,
                 roles: authorities,
-                accessToken: token
+                accessToken: token,
+                truffleAccount: user.truffleAccount,
+                reputation:user.reputation,
+                votes:user.votes
             });
         });
 };

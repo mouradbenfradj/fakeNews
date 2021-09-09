@@ -34,6 +34,24 @@ module.exports = {
         });
     },
 
+    publishPost: function (sender,hash, title, callback) {
+        var self = this;
+
+        News.setProvider(self.web3.currentProvider);
+
+        var meta;
+        News.deployed().then(function (instance) {
+            meta = instance;
+            return meta.publishPost(hash, title, {from: sender});
+        }).then(function () {
+            self.getAllPosts(function (answer) {
+                callback(answer);
+            });
+        }).catch(function (e) {
+            console.log(e);
+            callback("ERROR 404");
+        });
+    },
     votePost: function (sender, id, real, callback) {
         var self = this;
 
@@ -44,12 +62,48 @@ module.exports = {
             meta = instance;
             return meta.votePost(id, real, {from: sender});
         }).then(function () {
-            self.getPost(id, function (answer) {
+            self.getAllPosts(function (answer) {
                 callback(answer);
             });
         }).catch(function (e) {
             console.log(e);
             callback("ERROR 404");
+        });
+    },
+    
+    getNumberPosts: function (callback) {
+        var self = this;
+
+        // Bootstrap the MetaCoin abstraction for Use.
+        News.setProvider(self.web3.currentProvider);
+
+        var meta;
+        News.deployed().then(function (instance) {
+            meta = instance;
+            return meta.getNumberPosts();
+        }).then(function (value) {
+            callback(value);
+        }).catch(function (e) {
+            console.log(e);
+            callback("Error 404");
+        });
+    },
+
+    getAllPosts: function (callback) {
+        var self = this;
+
+        // Bootstrap the MetaCoin abstraction for Use.
+        News.setProvider(self.web3.currentProvider);
+
+        var meta;
+        News.deployed().then(function (instance) {
+            meta = instance;
+            return meta.getAllPosts();
+        }).then(function (value) {
+            callback(value);
+        }).catch(function (e) {
+            console.log(e);
+            callback("Error 404");
         });
     },
     setUserData: function (target, reputation, username, callback) {
@@ -60,9 +114,9 @@ module.exports = {
         var meta;
         News.deployed().then(function (instance) {
             meta = instance;
-            return meta.setUserData(target, reputation, username, {from: sender});
+            return meta.setUserData(target, reputation, username, {from: target});
         }).then(function () {
-            self.getUserPosts(function (answer) {
+            self.getUserPosts(target,function (answer) {
                 callback(answer);
             });
         }).catch(function (e) {
@@ -89,41 +143,6 @@ module.exports = {
             callback("Error 404");
         });
     },
-    getAllPosts: function (callback) {
-        var self = this;
-
-        // Bootstrap the MetaCoin abstraction for Use.
-        News.setProvider(self.web3.currentProvider);
-
-        var meta;
-        News.deployed().then(function (instance) {
-            meta = instance;
-            return meta.getAllPosts();
-        }).then(function (value) {
-            callback(value);
-        }).catch(function (e) {
-            console.log(e);
-            callback("Error 404");
-        });
-    },
-    getNumberPosts: function (callback) {
-        var self = this;
-
-        // Bootstrap the MetaCoin abstraction for Use.
-        News.setProvider(self.web3.currentProvider);
-
-        var meta;
-        News.deployed().then(function (instance) {
-            meta = instance;
-            return meta.getNumberPosts();
-        }).then(function (value) {
-            callback(value);
-        }).catch(function (e) {
-            console.log(e);
-            callback("Error 404");
-        });
-    },
-
     getPost: function (id, callback) {
         var self = this;
 
@@ -133,7 +152,7 @@ module.exports = {
         var meta;
         News.deployed().then(function (instance) {
             meta = instance;
-            return meta.getPost.call(id);
+            return meta.getPost(id);
         }).then(function (value) {
             callback(value);
         }).catch(function (e) {

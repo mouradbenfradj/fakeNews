@@ -8,9 +8,9 @@ const User = mongoose.model(
         password: String,
         postes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}],
         votes:[],
-        reputation: [Number],
+        reputation: Number,
         roles: [{type: mongoose.Schema.Types.ObjectId, ref: "Role"}],
-        truffleAccount: String,
+        truffleAccount: Number,
     })
 );
 
