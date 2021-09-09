@@ -2,6 +2,7 @@ const request = require('request');
 const db = require("../models");
 const Post = db.post;
 const Vote = db.vote;
+const User = db.user;
 
 exports.addPost = async (req, res) => {
     req.session.returnTo = req.originalUrl;
@@ -22,9 +23,9 @@ exports.fake = async (req, res) => {
     req.session.user.votes[post._id] = reps;
     var vote = new Vote({vote: reps, user: req.session.userID, post: req.params.postId});
     request.post({
-        url: 'http://localhost:3000/votePost/'+app.session.user.votes.votes.indexOf(userID),
-        body: {id: app.session.user.votes.votes.indexOf(userID), real: false},
-        json: truegetAllPosts
+        url: 'http://localhost:3000/votePost/'+req.session.user.votes.indexOf(req.params.postId),
+        body: {id: req.session.user.votes.indexOf(req.params.postId), real: false},
+        json: true
     }, function (error, response, body) {
         console.error('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -36,7 +37,7 @@ exports.fake = async (req, res) => {
             }
         });
     });
-    await User.findByIdAndUpdate({_id: req.params.userID}, app.session.user);
+    await User.findByIdAndUpdate({_id: req.session.userID}, req.session.user);
     await Post.findByIdAndUpdate({_id: req.params.postId}, post);
     res.redirect('/');
 };

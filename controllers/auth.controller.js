@@ -8,11 +8,9 @@ var bcrypt = require("bcryptjs");
 
 exports.logout = function (req, res) {
     res.clearCookie('x-access-token');
-
     req.session.destroy(function (err) {
         res.redirect('/');
     });
-    res.redirect('/');
 };
 exports.signup = (req, res) => {
     const user = new User({

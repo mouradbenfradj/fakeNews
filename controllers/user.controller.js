@@ -7,8 +7,6 @@ exports.allAccess = (req, res) => {
 }; */
 
 exports.getRegister = (req, res) => {
-    req.session.returnTo = req.originalUrl;
-
     res.render("auth/register");
 };
 
@@ -17,7 +15,11 @@ exports.postRegister = (req, res) => {
 
     request.post({
         url: 'http://localhost:3000/api/auth/signup',
-        body: {username: req.body.username, email: req.body.email, password: req.body.password,truffleAccount:req.body.truffleAccount},
+        body: {
+            username: req.body.username,
+            email: req.body.email, 
+            password: req.body.password,
+            truffleAccount:req.body.truffleAccount},
         json: true
     }, function (error, response, body) {
         console.error('error:', error); // Print the error if one occurred
